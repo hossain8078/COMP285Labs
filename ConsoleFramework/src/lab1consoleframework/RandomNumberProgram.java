@@ -4,6 +4,7 @@
  */
 package lab1consoleframework;
 import java.util.Random;
+
 /**
  * @author User
  */
@@ -49,6 +50,7 @@ public class RandomNumberProgram extends ConsoleProgram {
      * Executes the operation associated with the user's menu choice.
      * @param choice the user's menu choice
      */
+    
     @Override
     public void executeAction(int choice) {
         switch (choice) {
@@ -65,6 +67,7 @@ public class RandomNumberProgram extends ConsoleProgram {
                 System.out.println("Invalid menu option. Please choose 0, 1, 2, or 3.");
         }
     }
+    
     /**
      * Displays the message shown after the framework ends the menu loop.
      */

@@ -32,11 +32,10 @@ public abstract class ConsoleProgram {
         } while (choice != QUIT_OPTION);
         endProgram();
     }
-
+    
     /**
      * Displays the subclass's application-specific menu and obtains a choice.
      * every concrete subclass must implement this abstract framework method.
-     *
      * @return the menu choice entered by the user
      */
     public abstract int showMenu();

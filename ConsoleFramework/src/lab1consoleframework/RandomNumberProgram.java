@@ -73,7 +73,8 @@ public class RandomNumberProgram extends ConsoleProgram {
      */
     @Override
     public void endProgram() {
-        System.out.println("Program ended.");
+        System.out.print("Program ended. ");
+        System.out.println("Thank you for using our app");
     }
     /**
      * Fills every position in the array with a random integer.

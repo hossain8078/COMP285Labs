@@ -3,14 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package lab1consoleframework;
-
 import java.util.Scanner;
 
 /**
  * @author User
  */
 public abstract class ConsoleProgram {
-
     protected Scanner input = new Scanner(System.in);
     protected static final int QUIT_OPTION = 0;
 
@@ -60,7 +58,6 @@ public abstract class ConsoleProgram {
     /**
      * Reads a whole number from the console. The method continues prompting
      * until the user enters a valid integer.
-     *
      * @param prompt message displayed before reading input
      * @return the valid integer entered by the user
      */

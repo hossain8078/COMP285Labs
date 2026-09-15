@@ -16,7 +16,32 @@ public class App {
      */
     public static void main(String[] args) {
         RandomNumberProgram program = new RandomNumberProgram();
-        program.run();
+        ArrayManager arrayManager= new ArrayManager(1);
+        
+        try{
+            arrayManager.add(6);
+            
+        } catch (ArrayfullException e){
+            System.out.println("Array is full:");
+        }
+        arrayManager.print();
+        
+         try{
+            arrayManager.add(7);
+            
+        } catch (ArrayfullException e){
+            System.out.println("Array is full:");
+        }
+        arrayManager.print();
+//        
+//        arrayManager.print();
+//        arrayManager.add(6);
+//        arrayManager.print();
+//        arrayManager.add(7);
+//        arrayManager.print();
+//        
+//        arrayManager.add(10);
+        //program.run();
     }
 
 }

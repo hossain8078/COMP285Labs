@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:Comp258Lab2_ArrayManager/dist/README.TXT
 ========================
 BUILD OUTPUT DESCRIPTION
 ========================
@@ -30,3 +31,5 @@ the projects runtime path.
 in the Projects window and choose Properties. Then click Run and enter the
 class name in the Main Class field. Alternatively, you can manually type the
 class name in the manifest Main-Class element.
+=======
+>>>>>>> Stashed changes:Comp258Lab2/dist/README.TXT

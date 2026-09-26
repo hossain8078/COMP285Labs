@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -10,3 +11,17 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/1.Study/Academic/SEM3/DataStructure/Lab3/Lab3-Linkedlist/src/lab3/linkedlist/LinkedListApp.java</file>
+            <file>file:/D:/1.Study/Academic/SEM3/DataStructure/Lab3/Lab3-Linkedlist/src/lab3/linkedlist/ConsoleProgram.java</file>
+            <file>file:/D:/1.Study/Academic/SEM3/DataStructure/Lab3/Lab3-Linkedlist/src/lab3/linkedlist/LinkedList.java</file>
+            <file>file:/D:/1.Study/Academic/SEM3/DataStructure/Lab3/Lab3-Linkedlist/src/lab3/linkedlist/ListNode.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> Stashed changes

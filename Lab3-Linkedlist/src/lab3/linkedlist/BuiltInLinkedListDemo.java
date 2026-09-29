@@ -3,12 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package lab3.linkedlist;
-
 import java.util.LinkedList;
 
 /**
  * Demonstrates the required operations using Java's built-in LinkedList.
- *
  * @author User
  */
 public class BuiltInLinkedListDemo {
@@ -63,11 +61,11 @@ public class BuiltInLinkedListDemo {
 
         System.out.println("Final size: " + numbers.size());
     }
-
+    // method to display/print the linkedlis
     private static void displayList(LinkedList<Integer> numbers) {
         System.out.print("[");
         boolean firstItem = true;
-
+        // using enhanced loop to loop through the list
         for (Integer number : numbers) {
             if (!firstItem) {
                 System.out.print(", ");

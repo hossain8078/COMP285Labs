@@ -39,9 +39,11 @@ public abstract class ConsoleProgram {
             catch (NumberFormatException ex) { System.out.println("Please enter a whole number."); }
         }
     }
-
+    // method to start the program
     protected void startProgram() { System.out.println("Linked List Lab"); }
+    //method to end the program
     protected void endProgram() { System.out.println("Goodbye."); }
+    //abstract method to display the menu
     public abstract int showMenu();
     public abstract void executeAction(int choice);
 }

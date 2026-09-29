@@ -3,36 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package lab3.linkedlist;
-
 /**
  *
  * @author User
  */
 public class LinkedListApp extends ConsoleProgram {
     private final LinkedList list = new LinkedList();
-
+    
+    //override method th show the menu first
     @Override public int showMenu() {
-        System.out.println("\n============================ MENU ============================");
+        System.out.println("\n============================ MENU ======================");
         System.out.println(" 1. Add Before       4. Get Current       7. Advance");
         System.out.println(" 2. Add After        5. Get Item At       8. Start");
         System.out.println(" 3. Print            6. Delete Current    9. Run Test");
         System.out.println(" 0. Exit Program");
         return readInt("Select: ");
     }
-
+    // get the user input and move through the options and called the right method to execute the actions
     @Override public void executeAction(int choice) {
         switch (choice) {
             case 1:
                 list.addBefore(readInt("Value: "));
-                list.print();
+                list.print();// print the list with newly added value before
                 break;
             case 2:
                 list.addAfter(readInt("Value: "));
-                list.print();
+                list.print();// print the list with newly added value after
                 break;
             case 3:
-                list.print();
-                System.out.println("Size: " + list.getSize());
+                list.print();//print the list
+                System.out.println("Size: " + list.getSize());// print the list size
                 break;
             case 4:
                 System.out.println("Current value: " + list.getCurrent());
@@ -42,7 +42,7 @@ public class LinkedListApp extends ConsoleProgram {
                 break;
             case 6:
                 list.deleteCurrent();
-                list.print();
+                list.print();// print the list after deletion of any items
                 System.out.println("Current: " + (list.hasCurrent() ? list.getCurrent() : "none; choose Start"));
                 break;
             case 7:

@@ -9,8 +9,8 @@ package lab3.linkedlist;
  * @author User
  */
 public class LinkedList {
-   private ListNode items;   // Head: first node, or null for an empty list.
-    private ListNode current; // Cursor: selected node, or null after deleting the last one.
+   private ListNode items;   // Head-first node, or null for an empty list.
+    private ListNode current; // Cursor-selected node, or null after deleting the last one.
     private int size;
 
     public LinkedList() { }
@@ -44,12 +44,13 @@ public class LinkedList {
         current = current.getNextNode();
         return true;
     }
-
+   // add node after 
     public void addAfter(int value) {
         ListNode node = new ListNode(value);
         if (items == null) { items = node; current = node; }
         else {
             requireCurrent();
+           
             // Link the new node to the remainder BEFORE changing current's link.
             node.setNextNode(current.getNextNode());
             current.setNextNode(node);
@@ -58,6 +59,7 @@ public class LinkedList {
         // When nonempty, current stays on its original node.
     }
 
+   //add node before
     public void addBefore(int value) {
         ListNode node = new ListNode(value);
         if (items == null) { items = node; current = node; }
@@ -114,7 +116,7 @@ public class LinkedList {
     private void requireCurrent() {
         if (current == null) throw new IllegalStateException("No current node. Choose Start first, or add to an empty list.");
     }
-
+   //move to previous node
     private ListNode previous() {
         ListNode cursor = items;
         while (cursor != null && cursor.getNextNode() != current) cursor = cursor.getNextNode();

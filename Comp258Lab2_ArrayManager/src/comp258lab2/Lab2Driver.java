@@ -6,8 +6,6 @@
 package comp258lab2;
 
 //import java.util.ArrayList;
-package comp258lab2;
-
 import java.util.Scanner;
 import comp258.collections.ArrayManager;
 import comp258.exceptions.NoItemsException;

@@ -10,7 +10,7 @@
 
 # 
 
-# 1\. Open Lab1\_ConsoleFramework in NetBeans.
+# 1\. Open the Lab4\_Reorganization folder as a project in NetBeans.
 
 # 2\. Select Clean and Build.
 
@@ -18,7 +18,11 @@
 
 # 
 
-# The launcher provides:
+# The project may appear as ConsoleFramework in NetBeans.
+
+# 
+
+# \## Launcher menu
 
 # 
 
@@ -56,17 +60,65 @@
 
 # 
 
-# \## Generic list tests
+# \## Generic collections
 
 # 
 
-# Choose 4 in the launcher, then choose 8 to run the tests.
+# GenericList<T extends Comparable<T>> stores comparable values
+
+# in linked nodes.
 
 # 
 
-# Tests cover Integer, String, and Widget lists, including comparisons,
+# The getMaximum() method returns the largest value and selects
 
-# maximum selection, cursor movement, insertion, removal, and empty lists.
+# its node as the current node. It returns null when the list is empty.
+
+# 
+
+# Widget implements Comparable<Widget> and compares widgets by price.
+
+# 
+
+# \## Run the generic list tests
+
+# 
+
+# 1\. Run comp258.Driver.
+
+# 2\. Choose 4 to open the Generic List Program.
+
+# 3\. Choose 8 to run the tests.
+
+# 
+
+# Tests cover:
+
+# 
+
+# \- Integer, String, and Widget lists.
+
+# \- Widget price comparisons.
+
+# \- Maximum selection and current-node updates.
+
+# \- Cursor movement.
+
+# \- Insertion and removal.
+
+# \- Single-item and empty lists.
+
+# 
+
+# \## Earlier labs
+
+# 
+
+# Earlier lab exercises are preserved in the comp258.labs package.
+
+# Shared collections and the console framework are used by the
+
+# applications in comp258.programs.
 
 # 
 
@@ -74,9 +126,19 @@
 
 # 
 
-# The linked list lab document is saved in docs/LinkedLists-Lab3.pdf.
+# The linked list lab document is saved in:
 
 # 
 
-# Generated build files and local NetBeans settings are excluded through .gitignore.
+# docs/LinkedLists-Lab3.pdf
+
+# 
+
+# \## Git exclusions
+
+# 
+
+# The .gitignore file excludes generated build files, distribution
+
+# files, compiled classes, and local NetBeans settings.
 

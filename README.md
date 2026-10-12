@@ -1,144 +1,115 @@
-# \# COMP285Labs
+# COMP285Labs
 
-# 
+Java lab exercises for COMP 258: Data Structures and Frameworks.
 
-# Java labs for COMP 258: Data Structures and Frameworks.
+## Lab 4: Repository Organization and Generic Collections
 
-# 
+The existing repository has been reorganized into one project,
+located in Lab4_Reorganization.
 
-# \## Run the application
+Earlier lab exercises are preserved alongside the shared console
+framework, collection classes, and application launcher.
 
-# 
+## Run the application
 
-# 1\. Open the Lab4\_Reorganization folder as a project in NetBeans.
+1. Open Lab4_Reorganization as a project in NetBeans.
+2. Select Clean and Build.
+3. Run the project using the main class comp258.Driver.
 
-# 2\. Select Clean and Build.
+The project may appear as ConsoleFramework in NetBeans.
 
-# 3\. Run the project using the main class comp258.Driver.
+## Launcher menu
 
-# 
+| Option | Application |
+| --- | --- |
+| 1 | Random Number Program |
+| 2 | Array Manager Program |
+| 3 | Linked List Program |
+| 4 | Generic List Program |
+| 0 | Exit |
 
-# The project may appear as ConsoleFramework in NetBeans.
+Enter 0 inside an application to return to the launcher.
+Enter 0 in the launcher to exit.
 
-# 
+## Package organization
 
-# \## Launcher menu
+| Package | Purpose |
+| --- | --- |
+| comp258 | Main entry point: Driver |
+| comp258.framework | Shared ConsoleProgram framework |
+| comp258.programs | LabLauncher and console applications |
+| comp258.collections | Collections, nodes, and Widget |
+| comp258.exceptions | Custom exception classes |
+| comp258.labs | Preserved standalone exercises |
 
-# 
+## Generic collections
 
-# \- 1: Random Number Program
+GenericList<T extends Comparable<T>> stores values in linked nodes.
+The type constraint allows values of the same type to be compared
+using compareTo().
 
-# \- 2: Array Manager Program
+GenericNode<T> stores a value and a reference to the next node.
 
-# \- 3: Linked List Program
+The getMaximum() method:
 
-# \- 4: Generic List Program
+- Finds the largest value using compareTo().
+- Moves the current position to the node containing that value.
+- Returns null when the list is empty.
+- Selects the first maximum when multiple values compare equally.
 
-# \- 0: Exit
+Widget implements Comparable<Widget> and contains:
 
-# 
+- String name
+- double price
 
-# Enter 0 inside a lab application to return to the launcher.
+Widgets are compared by price. compareTo() returns a negative value,
+zero, or a positive value for a lower, equal, or higher price.
 
-# 
+## Run the generic list tests
 
-# \## Packages
+1. Run comp258.Driver.
+2. Choose 4 to open the Generic List Program.
+3. Choose 8 to run all tests.
 
-# 
+Each check displays PASS or FAIL.
 
-# \- comp258: Main driver.
+Tests cover:
 
-# \- comp258.framework: Shared console framework.
+- Integer lists, including negative values.
+- String ordering.
+- Widget insertion and price comparisons.
+- Maximum values and current-position updates.
+- Insertion before and after the current node.
+- Cursor movement and removal.
+- Single-item lists.
+- Empty-list printing, maximum, current, advance, and removal.
 
-# \- comp258.programs: Launcher and console applications.
+The interactive Generic List Program starts with an empty Widget list
+and handles invalid current-node operations without closing the program.
 
-# \- comp258.collections: Collection classes, nodes, and Widget.
+## Build validation
 
-# \- comp258.exceptions: Custom exceptions.
+All 22 Java source files compiled successfully in NetBeans.
 
-# \- comp258.labs: Preserved earlier lab exercises.
+The project was rebuilt with these additional compiler options:
 
-# 
+-Xlint:unchecked -Xlint:rawtypes
 
-# \## Generic collections
+The build output contained no unchecked or raw-type warnings.
 
-# 
+## Supporting documents
 
-# GenericList<T extends Comparable<T>> stores comparable values
+The linked list lab document is preserved at:
 
-# in linked nodes.
+docs/LinkedLists-Lab3.pdf
 
-# 
+## Git exclusions
 
-# The getMaximum() method returns the largest value and selects
+The .gitignore file excludes:
 
-# its node as the current node. It returns null when the list is empty.
+- Generated build directories.
+- Distribution directories.
+- Compiled .class files.
+- Local NetBeans settings in nbproject/private.
 
-# 
-
-# Widget implements Comparable<Widget> and compares widgets by price.
-
-# 
-
-# \## Run the generic list tests
-
-# 
-
-# 1\. Run comp258.Driver.
-
-# 2\. Choose 4 to open the Generic List Program.
-
-# 3\. Choose 8 to run the tests.
-
-# 
-
-# Tests cover:
-
-# 
-
-# \- Integer, String, and Widget lists.
-
-# \- Widget price comparisons.
-
-# \- Maximum selection and current-node updates.
-
-# \- Cursor movement.
-
-# \- Insertion and removal.
-
-# \- Single-item and empty lists.
-
-# 
-
-# \## Earlier labs
-
-# 
-
-# Earlier lab exercises are preserved in the comp258.labs package.
-
-# Shared collections and the console framework are used by the
-
-# applications in comp258.programs.
-
-# 
-
-# \## Supporting documents
-
-# 
-
-# The linked list lab document is saved in:
-
-# 
-
-# docs/LinkedLists-Lab3.pdf
-
-# 
-
-# \## Git exclusions
-
-# 
-
-# The .gitignore file excludes generated build files, distribution
-
-# files, compiled classes, and local NetBeans settings.
-
+Source files and shared project configuration remain tracked in Git.

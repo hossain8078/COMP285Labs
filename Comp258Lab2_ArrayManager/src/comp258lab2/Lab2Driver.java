@@ -151,9 +151,9 @@ package comp258lab2;
 
 //import java.util.ArrayList;
 import java.util.Scanner;
-import utilities.ArrayManager;
-import utilities.NoItemsException;
-import utilities.OutOfBoundsException;
+import comp258.collections.ArrayManager;
+import comp258.exceptions.NoItemsException;
+import comp258.exceptions.OutOfBoundsException;
 
 /**
  *

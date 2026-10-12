@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author User
  */
 public abstract class ConsoleProgram {
-    protected Scanner input = new Scanner(System.in);
+    protected static final Scanner input = new Scanner(System.in);
     protected static final int QUIT_OPTION = 0;
 
     /**

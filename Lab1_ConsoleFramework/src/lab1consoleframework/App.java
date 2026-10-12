@@ -4,6 +4,8 @@
  */
 package lab1consoleframework;
 
+import comp258.programs.RandomNumberProgram;
+
 /**
  * @author User
  */

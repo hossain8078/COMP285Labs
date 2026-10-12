@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package comp258.programs;
+
 import comp258.framework.ConsoleProgram;
+
 /**
  *
  * @author User
@@ -34,6 +36,7 @@ public class LabLauncher extends ConsoleProgram {
         System.out.println("1. Random Number Program");
         System.out.println("2. Array Manager Program");
         System.out.println("3. Linked List Program");
+        System.out.println("4. Generic List Program");
         System.out.println(QUIT_OPTION + ". Quit");
 
         // Uses the framework method to read a valid integer.
@@ -41,8 +44,8 @@ public class LabLauncher extends ConsoleProgram {
     }
 
     /**
-     * Creates and runs the selected application.
-     * The framework handles QUIT_OPTION before calling this method.
+     * Creates and runs the selected application. The framework handles
+     * QUIT_OPTION before calling this method.
      *
      * @param choice the application selected by the user
      */
@@ -62,9 +65,12 @@ public class LabLauncher extends ConsoleProgram {
             case 3:
                 currentProgram = new LinkedListProgram();
                 break;
-
+            case 4:
+                // Launches the generic list application.
+                currentProgram = new GenericListProgram();
+                break;
             default:
-                System.out.println("Invalid option. Choose 0 to 3.");
+                System.out.println("Invalid option. Choose 0 to 4.");
 
                 // Stops this action without running an application.
                 return;

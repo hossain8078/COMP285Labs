@@ -4,15 +4,15 @@ Java lab exercises for COMP 258: Data Structures and Frameworks.
 
 ## Lab 4: Repository Organization and Generic Collections
 
-The existing repository has been reorganized into one project,
-located in Lab4_Reorganization.
+The existing repository has been reorganized into one NetBeans project
+located directly in the repository root.
 
 Earlier lab exercises are preserved alongside the shared console
-framework, collection classes, and application launcher.
+framework, collections, and application launcher.
 
 ## Run the application
 
-1. Open Lab4_Reorganization as a project in NetBeans.
+1. Open the COMP285Labs repository folder as a project in NetBeans.
 2. Select Clean and Build.
 3. Run the project using the main class comp258.Driver.
 
@@ -31,6 +31,18 @@ The project may appear as ConsoleFramework in NetBeans.
 Enter 0 inside an application to return to the launcher.
 Enter 0 in the launcher to exit.
 
+## Repository structure
+
+| Path | Contents |
+| --- | --- |
+| src/comp258 | Driver and Java packages |
+| nbproject | NetBeans project configuration |
+| build.xml | Ant build script |
+| manifest.mf | Application manifest |
+| docs | Supporting lab documents |
+| README.md | Project instructions |
+| .gitignore | Git exclusion rules |
+
 ## Package organization
 
 | Package | Purpose |
@@ -41,6 +53,17 @@ Enter 0 in the launcher to exit.
 | comp258.collections | Collections, nodes, and Widget |
 | comp258.exceptions | Custom exception classes |
 | comp258.labs | Preserved standalone exercises |
+
+## Shared console framework
+
+ConsoleProgram provides the application lifecycle, menu loop,
+and input-reading methods.
+
+LabLauncher extends ConsoleProgram and stores the selected application
+in a private ConsoleProgram variable named currentProgram.
+
+Driver starts the launcher through a ConsoleProgram reference,
+demonstrating inheritance and polymorphism.
 
 ## Generic collections
 
@@ -87,15 +110,14 @@ Tests cover:
 The interactive Generic List Program starts with an empty Widget list
 and handles invalid current-node operations without closing the program.
 
-## Build validation
+## Compiler checks
 
-All 22 Java source files compiled successfully in NetBeans.
-
-The project was rebuilt with these additional compiler options:
+The additional compiler options are:
 
 -Xlint:unchecked -Xlint:rawtypes
 
-The build output contained no unchecked or raw-type warnings.
+These options report unchecked operations and raw generic types.
+After making changes, run Clean and Build and review the output.
 
 ## Supporting documents
 

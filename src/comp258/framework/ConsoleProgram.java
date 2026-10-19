@@ -76,7 +76,6 @@ public abstract class ConsoleProgram {
     /**
      * Reads a decimal number from the console. The method continues prompting
      * until the user enters a valid number.
-     *
      * @param prompt message displayed before reading input
      * @return the valid double entered by the user
      */
@@ -95,7 +94,6 @@ public abstract class ConsoleProgram {
 
     /**
      * Reads a line of text from the console.
-     *
      * @param prompt message displayed before reading input
      * @return the String entered by the user
      */

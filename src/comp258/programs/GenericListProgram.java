@@ -6,12 +6,12 @@ package comp258.programs;
 import comp258.collections.GenericList;
 import comp258.collections.Widget;
 import comp258.framework.ConsoleProgram;
+
 /**
  *
  * @author User
  */
 public class GenericListProgram extends ConsoleProgram {
-
     private GenericList<Widget> list;
 
     /**
@@ -40,9 +40,7 @@ public class GenericListProgram extends ConsoleProgram {
         return readInt("Select: ");
     }
 
-    /**
-     * Handles menu actions and reports invalid cursor operations.
-     */
+    //Handles menu actions and reports invalid cursor operations.
     @Override
     public void executeAction(int choice) {
         try {
@@ -110,9 +108,7 @@ public class GenericListProgram extends ConsoleProgram {
         }
     }
 
-    /**
-     * Reads a Widget and inserts it after the selected node.
-     */
+    //Reads a Widget and inserts it after the selected node.
     private void addWidget() {
         // A nonempty list can have no current after deleting its tail.
         if (list.getSize() > 0 && !list.hasCurrent()) {
@@ -127,9 +123,7 @@ public class GenericListProgram extends ConsoleProgram {
         list.print();
     }
 
-    /**
-     * Runs tests using separate lists, leaving the menu list unchanged.
-     */
+    //Runs tests using separate lists, leaving the menu list unchanged.
     private void runTests() {
         testEmptyList();
         testIntegers();
@@ -137,9 +131,7 @@ public class GenericListProgram extends ConsoleProgram {
         testWidgets();
     }
 
-    /**
-     * Checks all five required operations on an empty list.
-     */
+    //Checks all five required operations on an empty list.
     private void testEmptyList() {
         System.out.println("\n--- Empty-list tests ---");
         GenericList<Widget> empty = new GenericList<>();
@@ -174,9 +166,7 @@ public class GenericListProgram extends ConsoleProgram {
         check("Empty removal leaves size zero", empty.getSize() == 0);
     }
 
-    /**
-     * Checks numeric ordering, insertion, and cursor movement.
-     */
+    //Checks numeric ordering, insertion, and cursor movement.
     private void testIntegers() {
         System.out.println("\n--- Integer tests ---");
 
@@ -207,7 +197,6 @@ public class GenericListProgram extends ConsoleProgram {
         // Negative values verify that maximum is not initialized to zero.
         GenericList<Integer> negatives =
                 new GenericList<>(new Integer[]{-9, -2, -15});
-
         check("Negative maximum is -2", negatives.getMaximum() == -2);
     }
 
@@ -225,15 +214,12 @@ public class GenericListProgram extends ConsoleProgram {
                 "Zebra".equals(words.getMaximum()));
         check("Current moves to Zebra",
                 "Zebra".equals(words.getCurrent()));
-
         words.print();
         check("Printing preserves current",
                 "Zebra".equals(words.getCurrent()));
     }
 
-    /**
-     * Checks Widget insertion, price comparisons, ties, and removal.
-     */
+    //Checks Widget insertion, price comparisons, ties, and removal.
     private void testWidgets() {
         System.out.println("\n--- Widget tests ---");
 
@@ -282,9 +268,7 @@ public class GenericListProgram extends ConsoleProgram {
         check("Maximum after removal is null", single.getMaximum() == null);
     }
 
-    /**
-     * Displays an explicit result for each test.
-     */
+    //Displays an explicit result for each test.
     private void check(String description, boolean passed) {
         System.out.println(
                 (passed ? "PASS: " : "FAIL: ") + description);
@@ -295,9 +279,7 @@ public class GenericListProgram extends ConsoleProgram {
         System.out.println("Leaving Generic List.");
     }
 
-    /**
-     * Allows this program to be tested before connecting the launcher.
-     */
+    //Allows this program to be tested before connecting the launcher.
     public static void main(String[] args) {
         new GenericListProgram().run();
     }

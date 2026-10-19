@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package comp258.labs;
-
 import comp258.programs.RandomNumberProgram;
 import comp258.exceptions.ArrayfullException;
 
@@ -11,10 +10,8 @@ import comp258.exceptions.ArrayfullException;
  * @author User
  */
 public class App {
-
     /**
-     * Starts the RandomNumberProgram application. The application creates the
-     * concrete subclass and then uses the framework's inherited run() method to control the program flow.
+     * Starts the RandomNumberProgram application. The application creates the concrete subclass and then uses the framework's inherited run() method to control the program flow.
      * @param args command-line arguments are not used
      */
     public static void main(String[] args) {
@@ -36,15 +33,6 @@ public class App {
             System.out.println("Array is full:");
         }
         arrayManager.print();
-//        
-//        arrayManager.print();
-//        arrayManager.add(6);
-//        arrayManager.print();
-//        arrayManager.add(7);
-//        arrayManager.print();
-//        
-//        arrayManager.add(10);
-        //program.run();
     }
 
 }

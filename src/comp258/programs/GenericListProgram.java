@@ -3,23 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package comp258.programs;
-import comp258.collections.GenericList;
+import comp258.collections.GenericLinkedList;
 import comp258.collections.Widget;
 import comp258.framework.ConsoleProgram;
+
 /**
  *
  * @author User
  */
 public class GenericListProgram extends ConsoleProgram {
-
-    private GenericList<Widget> list;
+    private GenericLinkedList<Widget> list;
 
     /**
      * Starts each run with an empty list.
      */
     @Override
     public void startProgram() {
-        list = new GenericList<>();
+        list = new GenericLinkedList<>();
         System.out.println("GENERIC LIST PROGRAM");
         System.out.println("The Widget list is initially empty.");
     }
@@ -40,9 +40,7 @@ public class GenericListProgram extends ConsoleProgram {
         return readInt("Select: ");
     }
 
-    /**
-     * Handles menu actions and reports invalid cursor operations.
-     */
+    //Handles menu actions and reports invalid cursor operations.
     @Override
     public void executeAction(int choice) {
         try {
@@ -110,9 +108,7 @@ public class GenericListProgram extends ConsoleProgram {
         }
     }
 
-    /**
-     * Reads a Widget and inserts it after the selected node.
-     */
+    //Reads a Widget and inserts it after the selected node.
     private void addWidget() {
         // A nonempty list can have no current after deleting its tail.
         if (list.getSize() > 0 && !list.hasCurrent()) {
@@ -127,9 +123,7 @@ public class GenericListProgram extends ConsoleProgram {
         list.print();
     }
 
-    /**
-     * Runs tests using separate lists, leaving the menu list unchanged.
-     */
+    //Runs tests using separate lists, leaving the menu list unchanged.
     private void runTests() {
         testEmptyList();
         testIntegers();
@@ -137,12 +131,10 @@ public class GenericListProgram extends ConsoleProgram {
         testWidgets();
     }
 
-    /**
-     * Checks all five required operations on an empty list.
-     */
+    //Checks all five required operations on an empty list.
     private void testEmptyList() {
         System.out.println("\n--- Empty-list tests ---");
-        GenericList<Widget> empty = new GenericList<>();
+        GenericLinkedList<Widget> empty = new GenericLinkedList<>();
 
         System.out.print("Empty list: ");
         empty.print();
@@ -174,14 +166,12 @@ public class GenericListProgram extends ConsoleProgram {
         check("Empty removal leaves size zero", empty.getSize() == 0);
     }
 
-    /**
-     * Checks numeric ordering, insertion, and cursor movement.
-     */
+    //Checks numeric ordering, insertion, and cursor movement.
     private void testIntegers() {
         System.out.println("\n--- Integer tests ---");
 
         Integer[] values = {12, 7, 30, 4};
-        GenericList<Integer> numbers = new GenericList<>(values);
+        GenericLinkedList<Integer> numbers = new GenericLinkedList<>(values);
 
         numbers.print();
         check("Integer maximum is 30", numbers.getMaximum() == 30);
@@ -205,9 +195,8 @@ public class GenericListProgram extends ConsoleProgram {
         check("Size after removal is five", numbers.getSize() == 5);
 
         // Negative values verify that maximum is not initialized to zero.
-        GenericList<Integer> negatives =
-                new GenericList<>(new Integer[]{-9, -2, -15});
-
+        GenericLinkedList<Integer> negatives =
+                new GenericLinkedList<>(new Integer[]{-9, -2, -15});
         check("Negative maximum is -2", negatives.getMaximum() == -2);
     }
 
@@ -217,23 +206,20 @@ public class GenericListProgram extends ConsoleProgram {
     private void testStrings() {
         System.out.println("\n--- String tests ---");
 
-        GenericList<String> words =
-                new GenericList<>(new String[]{"Apple", "Zebra", "Banana"});
+        GenericLinkedList<String> words =
+                new GenericLinkedList<>(new String[]{"Apple", "Zebra", "Banana"});
 
         words.print();
         check("String maximum is Zebra",
                 "Zebra".equals(words.getMaximum()));
         check("Current moves to Zebra",
                 "Zebra".equals(words.getCurrent()));
-
         words.print();
         check("Printing preserves current",
                 "Zebra".equals(words.getCurrent()));
     }
 
-    /**
-     * Checks Widget insertion, price comparisons, ties, and removal.
-     */
+    //Checks Widget insertion, price comparisons, ties, and removal.
     private void testWidgets() {
         System.out.println("\n--- Widget tests ---");
 
@@ -246,7 +232,7 @@ public class GenericListProgram extends ConsoleProgram {
         check("Equal prices compare zero", bag.compareTo(equalPrice) == 0);
         check("Higher price compares positive", bag.compareTo(book) > 0);
 
-        GenericList<Widget> widgets = new GenericList<>();
+        GenericLinkedList<Widget> widgets = new GenericLinkedList<>();
 
         widgets.addAfter(pen);
         widgets.addAfter(bag);
@@ -269,7 +255,7 @@ public class GenericListProgram extends ConsoleProgram {
         widgets.deleteCurrent();
         check("Removal selects Case", widgets.getCurrent() == equalPrice);
 
-        GenericList<Widget> single = new GenericList<>();
+        GenericLinkedList<Widget> single = new GenericLinkedList<>();
         single.addAfter(pen);
 
         check("Single-item maximum is Pen", single.getMaximum() == pen);
@@ -282,9 +268,7 @@ public class GenericListProgram extends ConsoleProgram {
         check("Maximum after removal is null", single.getMaximum() == null);
     }
 
-    /**
-     * Displays an explicit result for each test.
-     */
+    //Displays an explicit result for each test.
     private void check(String description, boolean passed) {
         System.out.println(
                 (passed ? "PASS: " : "FAIL: ") + description);
@@ -295,9 +279,7 @@ public class GenericListProgram extends ConsoleProgram {
         System.out.println("Leaving Generic List.");
     }
 
-    /**
-     * Allows this program to be tested before connecting the launcher.
-     */
+    //Allows this program to be tested before connecting the launcher.
     public static void main(String[] args) {
         new GenericListProgram().run();
     }

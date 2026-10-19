@@ -11,79 +11,66 @@ import comp258.framework.ConsoleProgram;
  * @author User
  */
 public class LabLauncher extends ConsoleProgram {
-
-    // Holds the application selected by the user.
-    // A ConsoleProgram reference can hold any of its child-class objects.
+    // Parent-class reference holds the selected child application.
     private ConsoleProgram currentProgram;
-
-    /**
-     * Hook called once when the launcher starts.
-     */
+    //Runs once when the launcher starts.
     @Override
     public void startProgram() {
         System.out.println("Welcome to the lab launcher.");
     }
-
     /**
-     * Displays the available applications and reads the user's selection.
-     *
-     * @return the menu option entered by the user
+     * Displays the main menu required for Lab 5.
+     * @return the selected option, or QUIT_OPTION when exiting
      */
     @Override
     public int showMenu() {
         System.out.println("\n=============================");
         System.out.println("COMP 258 Labs");
-        System.out.println("1. Random Number Program");
-        System.out.println("2. Array Manager Program");
-        System.out.println("3. Linked List Program");
-        System.out.println("4. Generic List Program");
-        System.out.println(QUIT_OPTION + ". Quit");
+        System.out.println("1. Manage data with ArrayManager");
+        System.out.println("2. Manage data with LinkedList");
+        System.out.println("3. Manage data with GenericLinkedList");
+        System.out.println("4. Showcase Recursive Functions");
+        System.out.println("5. Exit");
 
-        // Uses the framework method to read a valid integer.
-        return readInt("Choose a program: ");
+        int choice = readInt("Choose a program: ");
+        // Keep prompting until a displayed option is selected.
+        while (choice < 1 || choice > 5) {
+            System.out.println("Invalid option. Choose 1 to 5.");
+            choice = readInt("Choose a program: ");
+        }
+
+        // The framework requires 0 to end its menu loop.
+        if (choice == 5) {
+            return QUIT_OPTION;
+        }
+        return choice;
     }
 
     /**
-     * Creates and runs the selected application. The framework handles
-     * QUIT_OPTION before calling this method.
-     *
+     * Creates and runs the selected application.
      * @param choice the application selected by the user
      */
     @Override
     public void executeAction(int choice) {
-
-        // Uses a plain switch to select the application.
+        // Plain switch selects the appropriate child class.
         switch (choice) {
-            case 1:
-                currentProgram = new RandomNumberProgram();
-                break;
 
-            case 2:
-                currentProgram = new ArrayManagerProgram();
+            case 1: currentProgram = new ArrayManagerProgram();
                 break;
-
-            case 3:
-                currentProgram = new LinkedListProgram();
+            case 2: currentProgram = new LinkedListProgram();
                 break;
-            case 4:
-                // Launches the generic list application.
-                currentProgram = new GenericListProgram();
+            case 3: currentProgram = new GenericListProgram();
                 break;
-            default:
-                System.out.println("Invalid option. Choose 0 to 4.");
-
-                // Stops this action without running an application.
+            case 4:currentProgram = new RecursiveFunctionsApp();
+                break;
+            default:System.out.println("Invalid program selection.");
                 return;
         }
-
-        // Runs the selected child class through the shared framework.
-        // When that application exits, the launcher menu appears again.
+        // Runs the selected application's framework lifecycle.
+        // Its exit option returns control to this launcher.
         currentProgram.run();
     }
-
-    /**
-     * Hook called once when the user exits the launcher.
-     */
+    // Runs once when the launcher closes.
     @Override
     public void endProgram() {
         System.out.println("Lab launcher closed.");

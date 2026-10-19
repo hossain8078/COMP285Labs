@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package comp258.programs;
-
 import comp258.collections.LinkedList;
 import comp258.framework.ConsoleProgram;
 
@@ -75,13 +74,11 @@ public class LinkedListProgram extends ConsoleProgram {
         System.out.print("Expected [5, 6, 7, 8, 9, 10, 11, 12]; actual ");
         test.print();
     }
-
     public static void main(String[] args) { 
-        
         new LinkedListProgram().run(); 
-    
     }
-    @Override
+    
+@Override
 public void startProgram() {
     System.out.println("LINKED LIST PROGRAM");
 }

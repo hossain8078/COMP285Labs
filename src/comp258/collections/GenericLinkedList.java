@@ -5,73 +5,54 @@
 package comp258.collections;
 
 /**
- *
  * @author User
  */
-public class GenericList<T extends Comparable<T>> {
-
+public class GenericLinkedList<T extends Comparable<T>> {
     // First node in the list.
     private GenericNode<T> items;
-
     // Currently selected node.
     private GenericNode<T> current;
-
     // Number of nodes in the list.
     private int size;
 
-    /**
-     * Creates an empty list.
-     */
-    public GenericList() {
+    //Creates an empty list.
+    public GenericLinkedList() {
     }
-
     /**
      * Copies array values into independent nodes in their original order.
-     *
      * @param initialValues the values to insert
      */
-    public GenericList(T[] initialValues) {
+    public GenericLinkedList(T[] initialValues) {
         if (initialValues == null) {
             throw new IllegalArgumentException("Input array is null.");
         }
-
         GenericNode<T> tail = null;
-
         for (T value : initialValues) {
             requireValue(value);
             GenericNode<T> node = new GenericNode<>(value);
-
             if (items == null) {
                 items = node;
             } else {
                 tail.setNextNode(node);
             }
-
             tail = node;
             size++;
         }
-
         current = items;
     }
-
     public int getSize() {
         return size;
     }
-
     public boolean hasCurrent() {
         return current != null;
     }
-
-    /**
-     * Selects the first node, or null if the list is empty.
-     */
+    //Selects the first node, or null if the list is empty.
     public void start() {
         current = items;
     }
-
+    
     /**
      * Returns the selected value.
-     *
      * @return the current value
      * @throws IllegalStateException when no node is selected
      */
@@ -83,14 +64,12 @@ public class GenericList<T extends Comparable<T>> {
     /**
      * Moves to the next node if one exists.
      * At the end, the current position remains unchanged.
-     *
      * @return true if the current position moved
      */
     public boolean advance() {
         if (current == null || current.getNextNode() == null) {
             return false;
         }
-
         current = current.getNextNode();
         return true;
     }
@@ -98,37 +77,31 @@ public class GenericList<T extends Comparable<T>> {
     /**
      * Inserts after current without moving current.
      * In an empty list, the new node becomes current.
-     *
      * @param value the value to insert
      */
     public void addAfter(T value) {
         requireValue(value);
         GenericNode<T> node = new GenericNode<>(value);
-
         if (items == null) {
             items = node;
             current = node;
         } else {
             requireCurrent();
-
             // Preserve the remaining chain before linking the new node.
             node.setNextNode(current.getNextNode());
             current.setNextNode(node);
         }
-
         size++;
     }
 
     /**
      * Inserts before current without moving current.
      * In an empty list, the new node becomes current.
-     *
      * @param value the value to insert
      */
     public void addBefore(T value) {
         requireValue(value);
         GenericNode<T> node = new GenericNode<>(value);
-
         if (items == null) {
             items = node;
             current = node;
@@ -142,10 +115,8 @@ public class GenericList<T extends Comparable<T>> {
                 previous().setNextNode(node);
             }
         }
-
         size++;
     }
-
     /**
      * Deletes current and selects its next node.
      * Deleting the tail leaves no current node.
@@ -153,22 +124,19 @@ public class GenericList<T extends Comparable<T>> {
     public void deleteCurrent() {
         requireCurrent();
         GenericNode<T> next = current.getNextNode();
-
+        
         if (current == items) {
             items = next;
         } else {
             previous().setNextNode(next);
         }
-
         // Disconnect the deleted node from the remaining chain.
         current.setNextNode(null);
         current = next;
         size--;
     }
-
     /**
      * Reads an item by zero-based index without moving current.
-     *
      * @param index the position to read
      * @return the value at that position
      */
@@ -177,21 +145,16 @@ public class GenericList<T extends Comparable<T>> {
             throw new IndexOutOfBoundsException(
                     "Index " + index + ", size " + size);
         }
-
         GenericNode<T> cursor = items;
-
         for (int i = 0; i < index; i++) {
             cursor = cursor.getNextNode();
         }
-
         return cursor.getData();
     }
-
     /**
      * Finds the greatest value using compareTo().
      * Selects the node containing that value.
      * If several values tie, selects the first maximum.
-     *
      * @return the maximum value, or null for an empty list
      */
     public T getMaximum() {
@@ -205,23 +168,18 @@ public class GenericList<T extends Comparable<T>> {
         GenericNode<T> cursor = items.getNextNode();
 
         while (cursor != null) {
-
             // A positive result means cursor's value is greater.
             if (cursor.getData().compareTo(maximum.getData()) > 0) {
                 maximum = cursor;
             }
-
             cursor = cursor.getNextNode();
         }
-
         // The lab requires current to move to the maximum node.
         current = maximum;
         return maximum.getData();
     }
 
-    /**
-     * Prints all values without moving current.
-     */
+    //Prints all values without moving current.
     public void print() {
         GenericNode<T> cursor = items;
         System.out.print("[");
@@ -234,14 +192,11 @@ public class GenericList<T extends Comparable<T>> {
                 System.out.print(", ");
             }
         }
-
         System.out.println("]");
     }
-
     /**
      * Copies values into an Object array without moving current.
      * Nodes remain the list's internal storage.
-     *
      * @return an independent array containing the list values
      */
     public Object[] toArray() {
@@ -253,13 +208,9 @@ public class GenericList<T extends Comparable<T>> {
             copy[i] = cursor.getData();
             cursor = cursor.getNextNode();
         }
-
         return copy;
     }
-
-    /**
-     * Rejects null values because they cannot be compared.
-     */
+    //Rejects null values because they cannot be compared.
     private void requireValue(T value) {
         if (value == null) {
             throw new IllegalArgumentException(
@@ -267,9 +218,7 @@ public class GenericList<T extends Comparable<T>> {
         }
     }
 
-    /**
-     * Checks that a current node exists before using it.
-     */
+    //Checks that a current node exists before using it.
     private void requireCurrent() {
         if (current == null) {
             throw new IllegalStateException(
@@ -277,10 +226,7 @@ public class GenericList<T extends Comparable<T>> {
                     + "or add to an empty list.");
         }
     }
-
-    /**
-     * Finds the node immediately before current.
-     */
+    //Finds the node immediately before current.
     private GenericNode<T> previous() {
         GenericNode<T> cursor = items;
 
@@ -292,7 +238,60 @@ public class GenericList<T extends Comparable<T>> {
             throw new IllegalStateException(
                     "Current node is not in this list.");
         }
-
         return cursor;
+    }
+    /**
+     * Prints the list forward using recursion.
+     * Does not change the selected current node.
+     */
+    public void printForward() {
+        System.out.print("[");
+        printForward(items);
+        System.out.println("]");
+    }
+
+    //Prints each value before visiting the next node.
+    private void printForward(GenericNode<T> node) {
+
+        // Base case: the end of the list.
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.getData());
+        
+        if (node.getNextNode() != null) {
+            System.out.print(", ");
+        }
+        // Recursive case: process the next node.
+        printForward(node.getNextNode());
+    }
+    
+    /**
+     * Prints the list backwards using recursion.
+     * Starts at the first node and follows only next references.
+     * Does not change the selected current node.
+     */
+    public void printBackwards() {
+        System.out.print("[");
+        printBackwards(items);
+        System.out.println("]");
+    }
+    
+    //Visits the next node before printing the current value.
+    private void printBackwards(GenericNode<T> node) {
+
+        // Base case: the end of the list.
+        if (node == null) {
+            return;
+        }
+
+        // Reach the end using only the next-node reference.
+        printBackwards(node.getNextNode());
+        
+        // Separate values while the recursive calls return.
+        if (node.getNextNode() != null) {
+            System.out.print(", ");
+        }
+        System.out.print(node.getData());
     }
 }

@@ -6,12 +6,10 @@ package comp258.collections;
 
 /**
  *@param <T> the type of value stored in the node
- * Stores one value and a reference to the next node.
- * 
+ * Stores one value and a reference to the next node
  * @author User
  */
 public class GenericNode<T> {
-
     private T data;
     private GenericNode<T> nextNode;
 

@@ -27,6 +27,7 @@ public class ArrayManager {
         items = new int[capacity];
         count = 0;
     }
+
     /**
      * Creates an ArrayManager containing the supplied values.
      * @param values the starting values
@@ -38,6 +39,7 @@ public class ArrayManager {
         }
         count = values.length;
     }
+
     /**
      * Returns the number of stored items.
      * @return the number of items
@@ -46,10 +48,7 @@ public class ArrayManager {
         return count;
     }
 
-    /**
-     * Displays all managed items.
-     * 
-     */
+    // Displays all managed items.
     public void print() {
         if (isEmpty()) {
             System.out.println("The ArrayManager is empty.");
@@ -64,6 +63,7 @@ public class ArrayManager {
             }
         }
     }
+
     /**
      * Adds an item to the end.
      * @param n the item to add
@@ -75,22 +75,27 @@ public class ArrayManager {
         items[count] = n;
         count += 1;
     }
+
     /**
      * Removes the item at the specified position.
-     * @param position the position to remove
-     * @throws NoItemsException if no items exist
+     * @param position the zero-based position to remove
+     * @throws NoItemsException if the manager is empty
+     * @throws IndexOutOfBoundsException if the position is invalid
      */
-    public void remove(int position)
-            throws NoItemsException {
-
+    public void remove(int position) throws NoItemsException {
         if (isEmpty()) {
             throw new NoItemsException();
         }
-        // Shift later items to the left.
+        // Validate before shifting items or changing count.
+        if (position < 0 || position >= count) {
+            throw new IndexOutOfBoundsException(
+                    "Position must be between 0 and " + (count - 1) + ".");
+        }
+        // Shift later items one position to the left.
         for (int i = position; i < count - 1; i++) {
             items[i] = items[i + 1];
         }
-        count -= 1;
+        count--;
     }
     /**
      * Adds an item at the specified position.
@@ -117,6 +122,7 @@ public class ArrayManager {
         items[position] = n;
         count += 1;
     }
+
     /**
      * Checks whether the ArrayManager is empty.
      * @return true if empty; otherwise false
@@ -124,9 +130,8 @@ public class ArrayManager {
     public boolean isEmpty() {
         return count == 0;
     }
-    /**
-     * Replaces the internal array with a new, larger array.
-     */
+
+    //Replaces the internal array with a new, larger array.
     private void resizeArray() {
         int newCapacity;
         if (items.length == 0) {
@@ -140,4 +145,4 @@ public class ArrayManager {
         }
         items = largerArray;
     }
-}   
+}

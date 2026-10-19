@@ -7,7 +7,7 @@ package comp258.collections;
 /**
  * @author User
  */
-public class GenericList<T extends Comparable<T>> {
+public class GenericLinkedList<T extends Comparable<T>> {
     // First node in the list.
     private GenericNode<T> items;
     // Currently selected node.
@@ -16,13 +16,13 @@ public class GenericList<T extends Comparable<T>> {
     private int size;
 
     //Creates an empty list.
-    public GenericList() {
+    public GenericLinkedList() {
     }
     /**
      * Copies array values into independent nodes in their original order.
      * @param initialValues the values to insert
      */
-    public GenericList(T[] initialValues) {
+    public GenericLinkedList(T[] initialValues) {
         if (initialValues == null) {
             throw new IllegalArgumentException("Input array is null.");
         }

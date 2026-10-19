@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package comp258.programs;
-import comp258.collections.GenericList;
+import comp258.collections.GenericLinkedList;
 import comp258.collections.Widget;
 import comp258.framework.ConsoleProgram;
 
@@ -12,14 +12,14 @@ import comp258.framework.ConsoleProgram;
  * @author User
  */
 public class GenericListProgram extends ConsoleProgram {
-    private GenericList<Widget> list;
+    private GenericLinkedList<Widget> list;
 
     /**
      * Starts each run with an empty list.
      */
     @Override
     public void startProgram() {
-        list = new GenericList<>();
+        list = new GenericLinkedList<>();
         System.out.println("GENERIC LIST PROGRAM");
         System.out.println("The Widget list is initially empty.");
     }
@@ -134,7 +134,7 @@ public class GenericListProgram extends ConsoleProgram {
     //Checks all five required operations on an empty list.
     private void testEmptyList() {
         System.out.println("\n--- Empty-list tests ---");
-        GenericList<Widget> empty = new GenericList<>();
+        GenericLinkedList<Widget> empty = new GenericLinkedList<>();
 
         System.out.print("Empty list: ");
         empty.print();
@@ -171,7 +171,7 @@ public class GenericListProgram extends ConsoleProgram {
         System.out.println("\n--- Integer tests ---");
 
         Integer[] values = {12, 7, 30, 4};
-        GenericList<Integer> numbers = new GenericList<>(values);
+        GenericLinkedList<Integer> numbers = new GenericLinkedList<>(values);
 
         numbers.print();
         check("Integer maximum is 30", numbers.getMaximum() == 30);
@@ -195,8 +195,8 @@ public class GenericListProgram extends ConsoleProgram {
         check("Size after removal is five", numbers.getSize() == 5);
 
         // Negative values verify that maximum is not initialized to zero.
-        GenericList<Integer> negatives =
-                new GenericList<>(new Integer[]{-9, -2, -15});
+        GenericLinkedList<Integer> negatives =
+                new GenericLinkedList<>(new Integer[]{-9, -2, -15});
         check("Negative maximum is -2", negatives.getMaximum() == -2);
     }
 
@@ -206,8 +206,8 @@ public class GenericListProgram extends ConsoleProgram {
     private void testStrings() {
         System.out.println("\n--- String tests ---");
 
-        GenericList<String> words =
-                new GenericList<>(new String[]{"Apple", "Zebra", "Banana"});
+        GenericLinkedList<String> words =
+                new GenericLinkedList<>(new String[]{"Apple", "Zebra", "Banana"});
 
         words.print();
         check("String maximum is Zebra",
@@ -232,7 +232,7 @@ public class GenericListProgram extends ConsoleProgram {
         check("Equal prices compare zero", bag.compareTo(equalPrice) == 0);
         check("Higher price compares positive", bag.compareTo(book) > 0);
 
-        GenericList<Widget> widgets = new GenericList<>();
+        GenericLinkedList<Widget> widgets = new GenericLinkedList<>();
 
         widgets.addAfter(pen);
         widgets.addAfter(bag);
@@ -255,7 +255,7 @@ public class GenericListProgram extends ConsoleProgram {
         widgets.deleteCurrent();
         check("Removal selects Case", widgets.getCurrent() == equalPrice);
 
-        GenericList<Widget> single = new GenericList<>();
+        GenericLinkedList<Widget> single = new GenericLinkedList<>();
         single.addAfter(pen);
 
         check("Single-item maximum is Pen", single.getMaximum() == pen);

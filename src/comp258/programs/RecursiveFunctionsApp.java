@@ -3,17 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package comp258.programs;
-import comp258.collections.GenericList;
+import comp258.collections.GenericLinkedList;
 import comp258.framework.ConsoleProgram;
 /**
  *
  * @author User
  * Demonstrates recursive mathematical and string-processing methods.
  */
-public class RecursiveFunctionsProgram extends ConsoleProgram {
+public class RecursiveFunctionsApp extends ConsoleProgram {
 
     // List used to demonstrate recursive printing.
-    private GenericList<Integer> numbers;
+    private GenericLinkedList<Integer> numbers;
 
     /**
      * Creates the sample list before the menu starts.
@@ -25,7 +25,7 @@ public class RecursiveFunctionsProgram extends ConsoleProgram {
         System.out.println("========== LAB 5: RECURSION ==========");
 
         Integer[] values = {10, 20, 30, 40, 50};
-        numbers = new GenericList<Integer>(values);
+        numbers = new GenericLinkedList<Integer>(values);
     }
 
     /**

@@ -61,7 +61,7 @@ public class LabLauncher extends ConsoleProgram {
                 break;
             case 3: currentProgram = new GenericListProgram();
                 break;
-            case 4:currentProgram = new RecursiveFunctionsProgram();
+            case 4:currentProgram = new RecursiveFunctionsApp();
                 break;
             default:System.out.println("Invalid program selection.");
                 return;

@@ -130,7 +130,6 @@ public class ArrayManager {
     public boolean isEmpty() {
         return count == 0;
     }
-
     //Replaces the internal array with a new, larger array.
     private void resizeArray() {
         int newCapacity;

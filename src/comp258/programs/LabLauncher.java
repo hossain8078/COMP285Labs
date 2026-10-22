@@ -24,7 +24,7 @@ public class LabLauncher extends ConsoleProgram {
      */
     @Override
     public int showMenu() {
-        System.out.println("\n=============================");
+        System.out.println("=============================\n");
         System.out.println("COMP 258 Labs");
         System.out.println("1. Manage data with ArrayManager");
         System.out.println("2. Manage data with LinkedList");
@@ -32,7 +32,7 @@ public class LabLauncher extends ConsoleProgram {
         System.out.println("4. Showcase Recursive Functions");
         System.out.println("5. Exit");
 
-        int choice = readInt("Choose a program: ");
+        int choice = readInt("\nChoose a program: ");
         // Keep prompting until a displayed option is selected.
         while (choice < 1 || choice > 5) {
             System.out.println("Invalid option. Choose 1 to 5.");

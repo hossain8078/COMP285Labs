@@ -157,6 +157,8 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
 
     /**
      * Calculates the factorial of a non-negative integer.
+     * @param n
+     * @return 
      */
     public int factorial(int n) {
 
@@ -176,6 +178,9 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
 
     /**
      * Calculates a base raised to a non-negative exponent.
+     * @param base
+     * @param exponent
+     * @return 
      */
     public int calculatePower(int base, int exponent) {
 
@@ -207,6 +212,8 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
 
     /**
      * Wrapper: starts checking at the first and last characters.
+     * @param word
+     * @return 
      */
     public boolean isPalindrome(String word) {
 
@@ -221,6 +228,10 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
     /**
      * Recursively checks matching characters from both ends.
      * Comparisons are case-sensitive.
+     * @param word
+     * @param start
+     * @param end
+     * @return 
      */
     public boolean isPalindrome(String word, int start, int end) {
 
@@ -246,6 +257,8 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
     /**
      * Recursively adds the digits of an integer.
      * Negative integers are supported.
+     * @param number
+     * @return 
      */
     public int digitSum(int number) {
 
@@ -260,6 +273,7 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
 
     /**
      * Wrapper: starts Indent-o-tron at call number 1.
+     * @param maxNum
      */
     public void indentoTron(int maxNum) {
 
@@ -273,6 +287,8 @@ public class RecursiveFunctionsApp extends ConsoleProgram {
 
     /**
      * Prints before recursion and again during stack unwinding.
+     * @param currentNum
+     * @param maxNum
      */
     public void indentoTron(int currentNum, int maxNum) {
 

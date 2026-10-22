@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package comp258;
-
 import comp258.framework.ConsoleProgram;
 import comp258.programs.LabLauncher;
 
@@ -15,7 +14,6 @@ public class Driver {
 
     /**
      * Starts the lab launcher.
-     *
      * @param args command-line arguments; not used in this application
      */
     public static void main(String[] args) {

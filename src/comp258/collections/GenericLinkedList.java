@@ -178,7 +178,7 @@ public class GenericLinkedList<T extends Comparable<T>> {
         current = maximum;
         return maximum.getData();
     }
-
+    
     //Prints all values without moving current.
     public void print() {
         GenericNode<T> cursor = items;

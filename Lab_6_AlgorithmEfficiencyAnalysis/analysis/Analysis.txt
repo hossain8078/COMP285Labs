@@ -1,0 +1,55 @@
+COMP 258: Algorithm Efficiency Analysis Lab
+Student: Md Alamgir Hossain
+
+PART 1 - METHODS AND TESTING
+
+1. ArrayManager.removeAllOccurances(Object o)
+The algorithm checks the item at index 0 and continues through the active array. When an item matches o, every later item is shifted one position left, count decreases, and the newly unused slot is cleared. The index stays at the same position to check the shifted-in item. Otherwise the index increases. This removes adjacent duplicates without skipping any and preserves survivor order.
+
+2. LinkedList.removeAllOccurances(Object o)
+The algorithm traverses nodes from the head, remembering the previous surviving node and the next node. A matching node is bypassed by updating the head or the previous node's next link. The removed node is disconnected and size decreases. The predecessor advances only when the current node survives. The selected current cursor stays on its node if it survives; otherwise it moves to the next surviving node or null. No index lookup or repeated previous() search is used.
+
+3. Required example
+Input:  {1,3,4,5,3,4,3,4,1,2,5,6}
+Call:   collection.removeAllOccurances(4)
+Output: {1,3,5,3,3,1,2,5,6}
+Both collections contain nine items afterward. There are 12 equality tests. ArrayManager performs 8 + 5 + 3 = 16 shift assignments. LinkedList unlinks three nodes without shifting the survivors.
+
+The runnable test driver also checks empty inputs, one item, no matches, all matches, adjacent matches, head and tail matches, zero, negative values, unmatched target types, repeated calls, list cursor behaviour, reuse after complete removal, and 1000 deterministic randomized cases against an independent filtered-array result.
+
+PART 2 - ANALYSIS
+
+4a. Which has the worst-case runtime?
+For these implementations, ArrayManager has the slower-growing worst-case runtime: Theta(n^2), commonly expressed as O(n^2). LinkedList has Theta(n), commonly expressed as O(n). These are properties of these particular algorithms. Arrays do not inherently require quadratic removal of all occurrences.
+
+4b. Explain using an example
+Suppose every value equals 4: {4,4,4,4,4}. The array repeatedly removes index 0 and shifts 4, then 3, then 2, then 1, then 0 values: 10 shifts total. It also performs 5 equality tests and 5 count updates and clears. The linked list visits each of its 5 nodes once and updates a constant number of references per removal. It never moves later values.
+
+For n matching items, array shifts total (n-1)+(n-2)+...+1+0 = n(n-1)/2. This quadratic term dominates the linear scan. In the list, keeping a predecessor avoids the repeated head-to-predecessor scans that calling deleteCurrent() could otherwise introduce for non-head removals.
+
+4c. Approximate operations for size n
+Assume integer equality, array indexing and reference updates take constant time.
+Use a simplified count of dominant data operations, not elapsed milliseconds or an exact count of CPU instructions.
+
+Array: n equality tests + S shift assignments, where S is the total number of shifts caused by removals. In the worst case, S = n(n-1)/2, so C_array(n) = n(n+1)/2. There are also O(n) index/count updates, slot clears, loop tests and other bookkeeping; these do not change Theta(n^2).
+
+Linked list: n equality tests + n saved-next reads + n traversal advances + r unlink/head assignments + r disconnect assignments + r size decrements + (n-r) predecessor advances + c current-cursor advances. Here r is the number removed and 0 <= c <= r. The sum is 4n + 2r + c <= 7n, before counting branch/loop tests. It is Theta(n). For an all-matching input whose cursor begins at the head, this model counts 7n operations.
+
+For the graph, use a common dominant-work convention: equality tests plus survivor movement/bypass assignments. Array: n(n+1)/2 in the all-matching case. List: n comparisons + n head bypass assignments = 2n. Other pointer bookkeeping and loop control are excluded from BOTH plotted models. Thus the graph shows theoretical growth, not benchmark timing, and its constants do not predict which implementation is faster for small inputs.
+
+n       Array model n(n+1)/2       Linked-list model 2n
+0       0                         0
+5       15                        10
+10      55                        20
+20      210                       40
+50      1275                      100
+100     5050                      200
+1000    500500                    2000
+
+The array curve bends upward quadratically. The list curve is a straight line. Doubling a large n roughly quadruples the array count but only doubles the list count. See comparison.png and operation_counts.csv in this folder.
+
+4d. Other cases and space
+With no matching values, both implementations still inspect all n items: Theta(n). Empty collections take O(1). Both methods use O(1) auxiliary space; neither allocates another collection. Storage already occupied by the collections is excluded. Surviving array elements retain their order and the array capacity is unchanged.
+
+4e. Can ArrayManager be improved?
+Yes. A read index can scan once while a write index copies surviving values forward, followed by clearing vacated slots and updating count. This compaction algorithm takes Theta(n) time and O(1) auxiliary space. The submitted method deliberately uses repeated shifting to compare conventional individual array deletion with direct linked-node removal, matching the lab's focus on internal storage. If compaction were implemented, both methods would have linear worst-case time and the analysis and graph would need to change.

@@ -13,6 +13,7 @@ collections, application launcher, and recursive algorithms.
 - Lab 4: Repository Organization and Generic Collections
 - Lab 5: Recursion
 - Lab 7: Binary Search Trees
+- Midterm fix: DoublyLinkedList moved onto the ConsoleProgram framework
 
 ## Run the application
 
@@ -31,7 +32,8 @@ The project may appear as `ConsoleFramework` in NetBeans.
 | 3 | Manage data with GenericLinkedList |
 | 4 | Showcase Recursive Functions |
 | 5 | Manage data with a Binary Search Tree |
-| 6 | Exit |
+| 6 | Manage data with DoublyLinkedList (Midterm) |
+| 7 | Exit |
 
 In the Array Manager, Linked List, and Generic List applications,
 enter `0` to return to the launcher.
@@ -39,9 +41,11 @@ enter `0` to return to the launcher.
 In the Recursive Functions application, enter `8` to return to the launcher.
 
 In the Binary Search Tree application, enter `7` to return to the launcher.
+
+In the DoublyLinkedList (Midterm) application, enter `9` to return to the launcher.
 Widgets are ordered by price, so "Check if item exists" searches by price.
 
-Enter `6` in the launcher to close the application.
+Enter `7` in the launcher to close the application.
 
 The earlier Random Number Program is preserved in the source code.
 
@@ -423,3 +427,18 @@ The `.gitignore` file excludes:
 - Local NetBeans settings in `nbproject/private`.
 
 Source files and shared project configuration remain tracked in Git.
+## Midterm fixes (per instructor feedback)
+
+Feedback: "-2 some inconsistencies in driver; no reusable ConsoleProgram framework"
+
+| Issue | Fix |
+| --- | --- |
+| Driver ran everything in `main()` with its own loop and Scanner | `DoublyLinkedListProgram` now extends `ConsoleProgram` and is launched from `LabLauncher` (option 6) |
+| Menu choice read as a String | Uses the framework's `readInt()` with range validation |
+| Exit used `0`, unlike the other programs | Exit is now the last menu number (`9`) and returns to the launcher |
+| List stored `Object` | `DoublyLinkedList<T>` and `ListNode2Way<T>` are now generic, in `comp258.collections` |
+| Node links were public fields | Links are private with getters and setters |
+| Move forward/backward always printed the same message | Now reports whether the cursor actually moved |
+| Part 2 answers were inside the driver's comments | Kept separately in `MidTerm/comp258midterm/Part2_Answers.txt` |
+
+The original midterm submission is preserved unchanged in the `MidTerm` folder.

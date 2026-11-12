@@ -12,6 +12,7 @@ collections, application launcher, and recursive algorithms.
 
 - Lab 4: Repository Organization and Generic Collections
 - Lab 5: Recursion
+- Lab 7: Binary Search Trees
 
 ## Run the application
 
@@ -29,14 +30,18 @@ The project may appear as `ConsoleFramework` in NetBeans.
 | 2 | Manage data with LinkedList |
 | 3 | Manage data with GenericLinkedList |
 | 4 | Showcase Recursive Functions |
-| 5 | Exit |
+| 5 | Manage data with a Binary Search Tree |
+| 6 | Exit |
 
 In the Array Manager, Linked List, and Generic List applications,
 enter `0` to return to the launcher.
 
 In the Recursive Functions application, enter `8` to return to the launcher.
 
-Enter `5` in the launcher to close the application.
+In the Binary Search Tree application, enter `7` to return to the launcher.
+Widgets are ordered by price, so "Check if item exists" searches by price.
+
+Enter `6` in the launcher to close the application.
 
 The earlier Random Number Program is preserved in the source code.
 

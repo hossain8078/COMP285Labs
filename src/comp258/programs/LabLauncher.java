@@ -31,17 +31,18 @@ public class LabLauncher extends ConsoleProgram {
         System.out.println("3. Manage data with GenericLinkedList");
         System.out.println("4. Showcase Recursive Functions");
         System.out.println("5. Manage data with a Binary Search Tree");
-        System.out.println("6. Exit");
+        System.out.println("6. Manage data with DoublyLinkedList (Midterm)");
+        System.out.println("7. Exit");
 
         int choice = readInt("\nChoose a program: ");
         // Keep prompting until a displayed option is selected.
-        while (choice < 1 || choice > 6) {
-            System.out.println("Invalid option. Choose 1 to 6.");
+        while (choice < 1 || choice > 7) {
+            System.out.println("Invalid option. Choose 1 to 7.");
             choice = readInt("Choose a program: ");
         }
 
         // The framework requires 0 to end its menu loop.
-        if (choice == 6) {
+        if (choice == 7) {
             return QUIT_OPTION;
         }
         return choice;
@@ -65,6 +66,10 @@ public class LabLauncher extends ConsoleProgram {
             case 4:currentProgram = new RecursiveFunctionsApp();
                 break;
             case 5: currentProgram = new BinarySearchTreeProgram();
+                break;
+            // MIDTERM FIX: the midterm DoublyLinkedList program now runs
+            // through the shared ConsoleProgram framework from this launcher.
+            case 6: currentProgram = new DoublyLinkedListProgram();
                 break;
             default:System.out.println("Invalid program selection.");
                 return;

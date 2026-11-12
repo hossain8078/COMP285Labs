@@ -1,7 +1,7 @@
 # COMP285Labs
 
 Java lab exercises for COMP 258: Data Structures and Frameworks.
-
+[![Architecture diagram of hossain8078/comp285labs](https://gitdiagram.com/hossain8078/comp285labs/diagram.png)](https://gitdiagram.com/hossain8078/comp285labs?utm_source=readme&utm_medium=picture)
 ## Overview
 
 The repository contains one NetBeans project located directly in the

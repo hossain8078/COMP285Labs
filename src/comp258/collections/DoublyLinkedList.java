@@ -1,5 +1,42 @@
 package comp258.collections;
 
+/*
+ * =====================================================================
+ * MIDTERM PART 2 - COLLECTION QUESTIONS
+ * =====================================================================
+ *
+ * 1. When is a pointer-based collection a better choice?
+ *
+ *    A doubly linked list is useful for a music playlist where songs are
+ *    frequently inserted or removed beside the current song. When the
+ *    current node is already known, insertion and removal take O(1) time
+ *    because only the links need updating. An array-based collection may
+ *    need to shift elements.
+ *
+ * 2. When is an index-based collection a better choice?
+ *
+ *    An array or ArrayList is useful when an application frequently
+ *    retrieves elements by their position, such as accessing a student
+ *    record using a known index. Indexed access takes O(1) time, while
+ *    accessing a position in a linked list requires traversal and takes
+ *    O(n) time in the worst case.
+ *
+ * 3. What would <T extends Comparable<T>> allow?
+ *
+ *    This restricts T to a type that implements Comparable<T>. We can
+ *    therefore use compareTo() to compare two elements of type T using
+ *    their natural ordering. This supports sorting, ordered insertion,
+ *    and finding the minimum or maximum element.
+ *
+ *    compareTo() returns:
+ *    - A negative number when the first element is smaller.
+ *    - Zero when the elements are equal in ordering.
+ *    - A positive number when the first element is larger.
+ *
+ *    Adding this type bound does not automatically sort the list.
+ * =====================================================================
+ */
+
 /**
  * MIDTERM FIX (per instructor feedback):
  * - Moved into the shared comp258.collections package so it is used by the
@@ -7,6 +44,8 @@ package comp258.collections;
  * - Made generic (<T>) instead of using Object, to match GenericLinkedList.
  * - advance() and previous() now return a boolean so the driver can tell
  *   the user whether the cursor actually moved.
+ * - The Part 2 written answers now live in the comment above this class,
+ *   next to the collection they discuss, instead of in the driver.
  *
  * A doubly linked list with a cursor (current node). New items are
  * inserted beside the cursor and become the current item.

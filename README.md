@@ -439,6 +439,6 @@ Feedback: "-2 some inconsistencies in driver; no reusable ConsoleProgram framewo
 | List stored `Object` | `DoublyLinkedList<T>` and `ListNode2Way<T>` are now generic, in `comp258.collections` |
 | Node links were public fields | Links are private with getters and setters |
 | Move forward/backward always printed the same message | Now reports whether the cursor actually moved |
-| Part 2 answers were inside the driver's comments | Kept separately in `MidTerm/comp258midterm/Part2_Answers.txt` |
+| Part 2 answers were inside the driver's comments | Moved into the comment at the top of `DoublyLinkedList.java` |
 
-The original midterm submission is preserved unchanged in the `MidTerm` folder.
+The separate `MidTerm` project folder was removed after the fix; the midterm question sheet is in `Requirement_docs`. The original submission is still available in Git history (pull request #7).

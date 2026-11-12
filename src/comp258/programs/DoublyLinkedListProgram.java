@@ -18,8 +18,8 @@ import comp258.framework.ConsoleProgram;
  * - The program is launched from LabLauncher (option 6) instead of having
  *   its own separate main() method.
  * - Move forward/backward now report whether the cursor actually moved.
- * - The Part 2 written answers were moved out of the driver's comments;
- *   they remain in MidTerm/comp258midterm/Part2_Answers.txt.
+ * - The Part 2 written answers were moved out of the driver's comments
+ *   into the comment at the top of comp258.collections.DoublyLinkedList.
  *
  * @author Md Alamgir Hossain
  */

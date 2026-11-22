@@ -123,4 +123,31 @@ public class LinkedList {
         if (cursor == null) throw new IllegalStateException("Current node is not in this list");
         return cursor;
     }
+
+    /**
+     * Removes every occurrence in one forward traversal.
+     * Keeps the predecessor locally: previous() would repeatedly scan the list.
+     * A removed current cursor selects its next surviving node (or null).
+     * Worst case: O(n) time; O(1) auxiliary space.
+     */
+    public void removeAllOccurances(Object o) {
+        ListNode previousNode = null;
+        ListNode node = items;
+        while (node != null) {
+            ListNode next = node.getNextNode();
+            if (Integer.valueOf(node.getData()).equals(o)) {
+                if (previousNode == null) {
+                    items = next;
+                } else {
+                    previousNode.setNextNode(next);
+                }
+                if (current == node) current = next;
+                node.setNextNode(null);
+                size--;
+            } else {
+                previousNode = node;
+            }
+            node = next;
+        }
+    }
 }

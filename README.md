@@ -15,6 +15,40 @@ collections, application launcher, and recursive algorithms.
 - Lab 7: Binary Search Trees
 - Midterm fix: DoublyLinkedList moved onto the ConsoleProgram framework
 
+## Course map
+
+```mermaid
+flowchart TB
+    subgraph F["1 · Foundations"]
+        direction LR
+        R0["Review exercise · Console framework<br/>ConsoleProgram + Random Number Program"]
+        L2["Lab 2 · Array-based structures<br/>ArrayList and ArrayManager"]
+        L3["Lab 3 · Linked lists<br/>LinkedList and ListNode"]
+        R0 --> L2 --> L3
+    end
+    subgraph G["2 · Generics & recursion"]
+        direction LR
+        L4["Lab 4 · Generic collections<br/>GenericLinkedList and Widget comparisons"]
+        L5["Lab 5 · Recursion<br/>factorial, powers, palindrome, digit sum, Indent-o-tron"]
+        L4 --> L5
+    end
+    subgraph T["3 · Efficiency & trees"]
+        direction LR
+        L6["Lab 6 · Algorithm efficiency<br/>removeAllOccurances: ArrayManager Θ(n²) vs LinkedList Θ(n)"]
+        M["Midterm fix · DoublyLinkedList<br/>moved onto the ConsoleProgram framework"]
+        L7["Lab 7 · Binary search trees<br/>BinarySearchTree and BSTNode"]
+        L6 --> M --> L7
+    end
+    D["★ comp258.Driver · Lab launcher<br/>one menu runs ArrayManager, LinkedList, GenericLinkedList,<br/>Recursive Functions, Binary Search Tree and DoublyLinkedList"]
+
+    F --> G --> T --> D
+
+    classDef hub fill:#fde68a,stroke:#b45309,stroke-width:2px,color:#000;
+    class D hub;
+```
+
+Interactive repository diagram: [view on GitDiagram](https://gitdiagram.com/hossain8078/comp285labs)
+
 ## Run the application
 
 1. Open the COMP285Labs repository folder as a project in NetBeans.

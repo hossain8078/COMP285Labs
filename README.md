@@ -12,6 +12,7 @@ collections, application launcher, and recursive algorithms.
 
 - Lab 4: Repository Organization and Generic Collections
 - Lab 5: Recursion
+- Lab 6: Algorithm Efficiency Analysis
 - Lab 7: Binary Search Trees
 - Midterm fix: DoublyLinkedList moved onto the ConsoleProgram framework
 
@@ -91,6 +92,7 @@ The earlier Random Number Program is preserved in the source code.
 | nbproject | NetBeans project configuration |
 | build.xml | Ant build script |
 | manifest.mf | Application manifest |
+| analysis | Lab 6 algorithm efficiency write-up, test results, operation counts and graph |
 | Requirement_docs | Supporting lab requirements |
 | README.md | Project instructions |
 | .gitignore | Git exclusion rules |
@@ -403,6 +405,53 @@ Additional useful checks include:
 
 Very large recursive inputs can exceed the available call-stack space.
 
+## Lab 6: Algorithm Efficiency Analysis
+
+Lab 6 adds a `removeAllOccurances(Object o)` method to the main
+collection classes and compares how efficient the two versions are.
+
+| Class | How it removes every match | Worst case |
+| --- | --- | --- |
+| `comp258.collections.ArrayManager` | Shifts every later item one place left for each match | O(n²) |
+| `comp258.collections.LinkedList` | Walks the list once and bypasses each matching node | O(n) |
+
+Required example:
+
+```text
+Before: {1,3,4,5,3,4,3,4,1,2,5,6}
+Call:   collection.removeAllOccurances(4)
+After:  {1,3,5,3,3,1,2,5,6}
+```
+
+### Run the Lab 6 tests
+
+The test driver is `comp258.labs.AlgorithmEfficiencyLab`. It is not a
+launcher option, so run it on its own:
+
+1. Open `src/comp258/labs/AlgorithmEfficiencyLab.java` in NetBeans.
+2. Right-click the file and select Run File.
+
+Expected output ends with:
+
+```text
+PASS: 6071 checks, including 1000 randomized cases.
+```
+
+The tests cover the required example, empty collections, single items,
+no matches, all matches, adjacent matches, repeated calls, list cursor
+behaviour and 1000 randomized cases.
+
+### Analysis
+
+The written analysis is in the `analysis` folder:
+
+| File | Contents |
+| --- | --- |
+| `Analysis.txt` | Method explanations, worst-case comparison, worked example and operation counts |
+| `TestResults.txt` | Output from the test driver |
+| `operation_counts.csv` | Operation counts for both methods for n = 0 to 1000 |
+| `comparison.png` | Graph comparing the two growth rates |
+
 ## ArrayManager
 
 The reusable `comp258.collections.ArrayManager` supports:
@@ -414,6 +463,8 @@ The reusable `comp258.collections.ArrayManager` supports:
 - Printing stored items.
 - Checking the number of items and whether the manager is empty.
 - Growing the internal array when capacity is reached.
+- Removing every occurrence of a value with `removeAllOccurances` (Lab 6).
+- Copying the active values with `toArray`.
 
 Removal validates that the manager is not empty and that the position
 is within the valid range before changing stored data.
@@ -436,6 +487,7 @@ After making changes, run Clean and Build and review the output.
 ## Supporting documents
 
 Lab requirements are stored in `Requirement_docs`.
+The Lab 6 instructions are in `Algorithm Efficiency Analysis Lab.pdf`.
 
 ## Git workflow for Lab 5
 

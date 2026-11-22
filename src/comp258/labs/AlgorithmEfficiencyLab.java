@@ -2,14 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package algorithmefficiencyanalysis;
+package comp258.labs;
 
 import java.util.Arrays;
 import java.util.Random;
-import algorithmefficiencyanalysis.collections.ArrayManager;
-import algorithmefficiencyanalysis.collections.LinkedList;
+import comp258.collections.ArrayManager;
+import comp258.collections.LinkedList;
 
-/** Demonstrates the assignment and checks both implementations without JUnit. */
+/**
+ * Lab 6: Algorithm Efficiency Analysis.
+ * Demonstrates removeAllOccurances on the main ArrayManager and LinkedList
+ * and checks both implementations without JUnit.
+ * Run this file directly (Run File in NetBeans); the write-up is in /analysis.
+ */
 public class AlgorithmEfficiencyLab {
     private static int checks;
     public static void main(String[] args) {

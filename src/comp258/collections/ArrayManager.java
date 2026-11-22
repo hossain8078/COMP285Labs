@@ -144,4 +144,32 @@ public class ArrayManager {
         }
         items = largerArray;
     }
+
+    /**
+     * Removes every occurrence, preserving survivor order.
+     * Rechecks the same index after shifting so adjacent matches are not skipped.
+     * This integer collection accepts Integer targets; other types do not match.
+     * Worst case: O(n^2) time; O(1) auxiliary space.
+     */
+    public void removeAllOccurances(Object o) {
+        int index = 0;
+        while (index < count) {
+            if (Integer.valueOf(items[index]).equals(o)) {
+                for (int j = index; j < count - 1; j++) {
+                    items[j] = items[j + 1];
+                }
+                count--;
+                items[count] = 0;
+            } else {
+                index++;
+            }
+        }
+    }
+
+    /** Returns an independent copy of the active values for testing. */
+    public int[] toArray() {
+        int[] copy = new int[count];
+        for (int i = 0; i < count; i++) copy[i] = items[i];
+        return copy;
+    }
 }
